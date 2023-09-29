@@ -7,14 +7,14 @@ import { Context } from '../context/Context'
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>('')
   const [password, setPassword] = useState<string>('')
-  const [message, setMessage] = useState<string>('')
+  const [error, setError] = useState<string>('')
 
   const context = useContext(Context)
   const navigate = useNavigate()
 
   const handleLogin = () => {
     if (!username || !password) {
-      setMessage('Username and password needed')
+      setError('Username and password needed')
     } else {
       axios
         .post('http://localhost:5000/login', { username, password })
@@ -27,7 +27,7 @@ const Login: React.FC = () => {
         })
         .catch((error) => {
           console.error('Error:', error)
-          setMessage('An error occurred')
+          setError('An error occurred')
         })
     }
   }
@@ -57,7 +57,7 @@ const Login: React.FC = () => {
           Login
         </button>
         <div className="text-red-500 h-[1rem] mt-2">
-          {message && <p>{message}</p>}
+          {error && <p>{error}</p>}
         </div>
       </div>
     </div>
