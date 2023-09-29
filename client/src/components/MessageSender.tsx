@@ -21,6 +21,8 @@ const MessageSender: React.FC = () => {
         .catch((error) => {
           console.error('error>>>', error)
         })
+      //clear error
+      setError('')
     }
   }
 
