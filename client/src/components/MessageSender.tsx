@@ -1,10 +1,20 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 
 const MessageSender: React.FC = () => {
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState<string>('')
 
   const handleMessage = () => {
-    console.log(message)
+    axios
+      .post('http://localhost:5000/message', { HttpMessage: message })
+      .then((response) => {
+        if (response.status === 200) {
+          console.log('message sent', response.data)
+        }
+      })
+      .catch((error) => {
+        console.error('error>>>', error)
+      })
   }
 
   return (
