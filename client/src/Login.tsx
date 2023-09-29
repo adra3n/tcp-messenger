@@ -8,11 +8,11 @@ const Login: React.FC = () => {
 
   const handleLogin = () => {
     if (!username || !password) {
-      setMessage('Please check your username and password')
+      setMessage('Username and password needed')
     } else {
       axios
-        .post('/login', { username, password })
-        .then((response) => {
+      .post('http://localhost:5000/login', { username, password })
+      .then((response) => {
           console.log('Login succesful')
         })
         .catch((error) => {
