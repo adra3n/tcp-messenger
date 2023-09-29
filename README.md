@@ -1,9 +1,9 @@
-# TCP Messenger
+## TCP Messenger
 
 This is an simple messaging app using TCP socket with Node.js "net" library.
 After logging in you can send and get messages from server.
 
-# Technologies
+## Technologies
 -React.js
 -Node.js
 -TypeScript
@@ -14,7 +14,7 @@ After logging in you can send and get messages from server.
 -Context API
 -net for TCP
 
-# How to run
+## How to run
 -Use "npm install" in /client and /server directories.
 -Use "npm start" in /client and /server directories seperately to start server and client. 
 -Go to "http://localhost:3000/" on your browser.
