@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [message, setMessage] = useState('')
+  const [username, setUsername] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [message, setMessage] = useState<string>('')
+
 
   const handleLogin = () => {
     if (!username || !password) {
@@ -21,27 +22,39 @@ const Login: React.FC = () => {
         })
     }
   }
+
+
+
   return (
-    <div>
-      <div>
-        <h1>Login</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        
+      <div className="bg-white p-8 rounded shadow-md w-96">
+        <h1 className="text-2xl font-semibold mb-4">Login</h1>
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="w-full px-3 py-2 border rounded shadow-sm mb-2"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="w-full px-3 py-2 border rounded shadow-sm mb-2"
         />
-        <button onClick={handleLogin}>Login</button>
-        {message && <p>{message}</p>}
+        <button
+          onClick={handleLogin}
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded mt-4"
+        >
+          Login
+        </button>
+        {message && <p className="text-red-500 mt-2">{message}</p>}
       </div>
     </div>
   )
 }
+
 
 export default Login
