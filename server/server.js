@@ -8,11 +8,14 @@ const users = [
   { id: 2, username: 'ahmet', password: '1234' },
 ]
 
+//PORTS
 const HTTPPORT = 5000
 const TCPPORT = 8000
 
+//im using this to save the last message
 let TCPMessage = ''
 
+/// MWs and server ///
 const app = express()
 
 //cors
